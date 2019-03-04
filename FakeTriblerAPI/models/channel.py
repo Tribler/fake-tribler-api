@@ -1,3 +1,4 @@
+import time
 from random import randint
 
 import FakeTriblerAPI.tribler_utils as tribler_utils
@@ -15,6 +16,7 @@ class Channel:
         self.votes = randint(0, 10000)
         self.torrents = set()
         self.subscribed = False
+        self.timestamp = int(round(time.time() * 1000)) - randint(0, 3600 * 24 * 7 * 1000)
 
         self.add_random_torrents()
 
@@ -33,7 +35,8 @@ class Channel:
             "subscribed": self.subscribed,
             "votes": self.votes,
             "status": 1,
-            "my_channel": False
+            "my_channel": False,
+            "updated": self.timestamp
         }
 
     def get_torrent_with_infohash(self, infohash):
