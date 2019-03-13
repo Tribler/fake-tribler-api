@@ -22,7 +22,8 @@ class Circuit(Base):
     def to_dictionary(self):
         result = super(Circuit, self).to_dictionary()
         result.update({"circuit_id": self.circuit_id, "goal_hops": self.goal_hops,
-                       "actual_hops": self.actual_hops, "type": self.type, "state": self.state})
+                       "actual_hops": self.actual_hops, "type": self.type, "state": self.state,
+                       "unverified_hop": ""})
         return result
 
 

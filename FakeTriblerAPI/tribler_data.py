@@ -209,7 +209,7 @@ class TriblerData:
                 return torrent
 
     def start_random_download(self, media=False):
-        random_torrent = sample(self.torrents, 1)[0]
+        random_torrent = Torrent.random()
         download = Download(random_torrent)
         if media:
             download.files.append({
