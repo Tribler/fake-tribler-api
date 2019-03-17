@@ -103,7 +103,7 @@ class MyChannelTorrentsEndpoint(MyChannelBaseEndpoint):
                                                                   include_status=True)
 
         return json.dumps({
-            "torrents": torrents,
+            "results": torrents,
             "first": first,
             "last": last,
             "sort_by": sort_by,
