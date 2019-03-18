@@ -75,7 +75,7 @@ class ChannelsEndpoint(BaseChannelsEndpoint):
         first, last, sort_by, sort_asc, filter, subscribed = ChannelsEndpoint.sanitize_parameters(request.args)
         channels, total = tribler_utils.tribler_data.get_channels(first, last, sort_by, sort_asc, filter, subscribed)
         return json.dumps({
-            "channels": channels,
+            "results": channels,
             "first": first,
             "last": last,
             "sort_by": sort_by,
@@ -150,7 +150,7 @@ class SpecificChannelTorrentsEndpoint(BaseChannelsEndpoint):
 
         torrents, total = tribler_utils.tribler_data.get_torrents(first, last, sort_by, sort_asc, filter, channel)
         return json.dumps({
-            "torrents": torrents,
+            "results": torrents,
             "first": first,
             "last": last,
             "sort_by": sort_by,
