@@ -1,4 +1,5 @@
 import random
+import time
 
 
 class Base(object):
@@ -7,7 +8,7 @@ class Base(object):
         self.bytes_down = random.randint(0, 1024**3)
 
     def to_dictionary(self):
-        return {"bytes_up": self.bytes_up, "bytes_down": self.bytes_down}
+        return {"bytes_up": self.bytes_up, "bytes_down": self.bytes_down, "creation_time": time.time()}
 
 
 class Circuit(Base):
