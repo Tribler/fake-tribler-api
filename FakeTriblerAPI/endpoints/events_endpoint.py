@@ -23,6 +23,6 @@ class EventsEndpoint(resource.Resource):
 
         request.write(json.dumps({"type": "events_start", "event": {"tribler_started": True,
                                                                     "version": "1.2.3"}}) + '\n')
-        request.write(json.dumps({"type": "tribler_started"}) + '\n')
+        request.write(json.dumps({"type": "tribler_started", "event": {"version": "1.2.3."}}) + '\n')
 
         return server.NOT_DONE_YET
