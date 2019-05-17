@@ -57,7 +57,7 @@ class SearchEndpoint(resource.Resource):
             channels_json.append(channel_json)
 
         if sort_by and sort_by != 'category':
-            channels_json.sort(key=lambda result: result[sort_by], reverse=not sort_asc)
+            channels_json.sort(key=lambda result: result[sort_by] if sort_by in result else None, reverse=not sort_asc)
 
         if not type:
             search_results = channels_json + torrents_json
