@@ -1,5 +1,5 @@
 import time
-from random import randint
+from random import randint, choice
 
 import FakeTriblerAPI.tribler_utils as tribler_utils
 from FakeTriblerAPI.constants import NEW, TODELETE
@@ -16,6 +16,7 @@ class Channel:
         self.votes = randint(0, 10000)
         self.torrents = set()
         self.subscribed = False
+        self.state = choice([u"Downloading", u"Personal", u"Legacy", u"Complete", u"Updating", u"Preview"])
         self.timestamp = int(round(time.time() * 1000)) - randint(0, 3600 * 24 * 7 * 1000)
 
         self.add_random_torrents()
@@ -35,7 +36,7 @@ class Channel:
             "subscribed": self.subscribed,
             "votes": self.votes,
             "status": 1,
-            "my_channel": False,
+            "state": self.state,
             "updated": self.timestamp
         }
 
