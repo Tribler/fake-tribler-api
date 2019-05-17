@@ -48,7 +48,7 @@ class SearchEndpoint(resource.Resource):
             torrents_json.append(torrent_json)
 
         if sort_by:
-            torrents_json.sort(key=lambda result: result[sort_by], reverse=not sort_asc)
+            torrents_json.sort(key=lambda result: result[sort_by] if sort_by in result else None, reverse=not sort_asc)
 
         channels_json = []
         for index in picked_channels:
