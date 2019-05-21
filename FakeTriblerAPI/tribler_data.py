@@ -80,6 +80,7 @@ class TriblerData:
                     "number_hops": 1,
                     "anonymity_enabled": True,
                     "safeseeding_enabled": True,
+                    "add_download_to_channel": False
                 },
                 "ipv8": {
                     "enabled": True,
